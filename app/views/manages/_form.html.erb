@@ -1,0 +1,41 @@
+<%= form_for(@manage) do |f| %>
+  <% if @manage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manage.errors.count, "error") %> prohibited this manage from being saved:</h2>
+
+      <ul>
+      <% @manage.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.text_field :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :logintime %><br>
+    <%= f.datetime_select :logintime %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

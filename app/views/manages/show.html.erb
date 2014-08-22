@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @manage.username %>
+</p>
+
+<p>
+  <strong>Password_digest:</strong>
+  <%= @manage.password_digest %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @manage.image %>
+</p>
+
+<p>
+  <strong>Logintime:</strong>
+  <%= @manage.logintime %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @manage.status %>
+</p>
+
+<%= link_to 'Edit', edit_manage_path(@manage) %> |
+<%= link_to 'Back', manages_path %>

@@ -1,0 +1,35 @@
+<h1>Listing manages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Password-digest</th>
+      <th>Image</th>
+      <th>Logintime</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manages.each do |manage| %>
+      <tr>
+        <td><%= manage.username %></td>
+        <td><%= manage.password_digest %></td>
+        <td><%= manage.image %></td>
+        <td><%= manage.logintime %></td>
+        <td><%= manage.status %></td>
+        <td><%= link_to 'Show', manage %></td>
+        <td><%= link_to 'Edit', edit_manage_path(manage) %></td>
+        <td><%= link_to 'Destroy', manage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Manage', new_manage_path %>

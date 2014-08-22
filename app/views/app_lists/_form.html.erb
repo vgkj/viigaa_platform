@@ -1,0 +1,71 @@
+<aside class="right-side">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= form_for(@app_list) do |f| %>
+          <% if @app_list.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@app_list.errors.count, "error") %> prohibited this app_list from being saved:</h2>
+
+                <ul>
+                  <% @app_list.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label "APP名称" %><br>
+            <%= f.text_field :app_title %>
+          </div>
+          <div class="field">
+            <%= f.label "APP类别" %><br>
+            <%= select_tag("app_list[app_parent]", options_for_select(AppCategory.cate_to_a :parent)) %>
+            <%= select_tag("app_list[app_child]", options_for_select(AppCategory.cate_to_a :child)) %>
+          </div>
+          <div class="field">
+            <%= f.label "下载次数" %><br>
+            <%= f.text_field :app_count %>
+          </div>
+          <div class="field">
+            <%= f.label "APP版本号" %><br>
+            <%= f.text_field :app_version %>
+          </div>
+          <div class="field">
+            <%= f.label "APP文件大小" %><br>
+            <%= f.text_field :app_size %>
+          </div>
+          <div class="field">
+            <%= f.label "奖励V币" %><br>
+            <%= f.text_field :app_credit %>
+          </div>
+          <div class="field">
+            <%= f.label "资源类型" %><br>
+            <%= select_tag("app_list[app_type]", options_for_select(AppCategory.cate_to_a :type)) %>
+          </div>
+          <div class="field">
+            <%= f.label "系统要求" %><br>
+            <%= select_tag("app_list[app_system]", options_for_select(AppCategory.cate_to_a :system)) %>
+          </div>
+          <div class="field">
+            <%= f.label "APP LOGO"%><br>
+            <%= f.file_field :app_logo%>
+          </div>
+          <%= f.fields_for :@app_resouce do |resouce| %>
+              <div class="field">
+                <%= resouce.label "APP截图"%><br>
+                <%= resouce.file_field :app_pic ,:multiple=>true,name: "app_resouce[app_pic][]"%>
+              </div>
+          <% end%>
+          <div class="field">
+            <%= f.label "APP安装包"%><br>
+            <%= f.file_field :app_url%>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+      <% end %>
+
+    </div>
+  </div>
+</aside>

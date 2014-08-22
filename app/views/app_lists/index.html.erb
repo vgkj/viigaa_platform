@@ -1,0 +1,50 @@
+<aside class="right-side">
+<div class="row">
+<div class="col-xs-12">
+
+<div class="box">
+<div class="box-header">
+  <h3 class="box-title">APP列表</h3>
+</div><!-- /.box-header -->
+<div class="box-body table-responsive">
+  <%= link_to '新增应用', new_app_list_path %>
+<table id="example1" class="table table-bordered table-striped">
+<thead>
+<tr>
+  <th>App LOGO</th>
+  <th>App名称</th>
+  <th>App分类</th>
+  <th>App类型</th>
+  <th>系统要求</th>
+  <th>下载量</th>
+  <th>大小</th>
+  <th>奖励V币</th>
+  <th>下载地址</th>
+  <th colspan="3">操作</th>
+</tr>
+</thead>
+<tbody>
+<% @app_lists.each do |app_list| %>
+    <tr>
+      <td><%= image_tag app_list.app_logo%></td>
+      <td><%= app_list.app_title %></td>
+      <td><%= AppCategory.cate_key(:parent,app_list.app_parent)+"/"+AppCategory.cate_key(:child,app_list.app_child) %></td>
+      <td><%= AppCategory.cate_key(:type,app_list.app_type)%></td>
+      <td><%= AppCategory.cate_key(:system,app_list.app_system)%></td>
+      <td><%= app_list.app_count%></td>
+      <td><%= app_list.app_size%></td>
+      <td><%= app_list.app_credit%></td>
+      <td><%= app_list.app_url%></td>
+      <td><%= link_to '详细', app_list %></td>
+      <td><%= link_to '编辑', edit_app_list_path(app_list) %></td>
+      <td><%= link_to '删除', app_list, method: :delete%></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+<%= will_paginate %>
+</div><!-- /.box-body -->
+</div><!--end box-->
+</div>
+</div>
+</aside>
