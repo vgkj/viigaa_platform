@@ -80,6 +80,6 @@ class AppListsController < ApplicationController
 
     def app_list_params
       params.require(:app_list).permit(:app_title,:app_parent,:app_child,:app_count,:app_version,:app_size,:app_credit,
-                    :app_type,:app_system,:app_url,:app_logo,app_resouce_attributes:[:app_pic])
+                    :app_type,:app_system,:app_description,:app_url,:app_logo,app_resouce_attributes:[:app_pic])
     end
 end

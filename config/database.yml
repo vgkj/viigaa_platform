@@ -11,10 +11,11 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: viigaawifi
+  database: viigaa_wifi
+  host: 112.126.75.96
   pool: 5
   username: root
-  password: root
+  password: 4rfvMju7
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -23,17 +24,19 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: viigaawifi
+  database: viigaa_wifi
+  host: 112.126.75.96
   pool: 5
   username: root
-  password: root
+  password: 4rfvMju7
   socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: viigaawifi
+  database: viigaa_wifi
+  host: 112.126.75.96
   pool: 5
   username: root
-  password: root
+  password: 4rfvMju7
   socket: /var/run/mysqld/mysqld.sock

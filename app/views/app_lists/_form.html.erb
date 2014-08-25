@@ -48,6 +48,10 @@
             <%= select_tag("app_list[app_system]", options_for_select(AppCategory.cate_to_a :system)) %>
           </div>
           <div class="field">
+            <%= f.label "APP描述" %><br>
+            <%= f.text_area :app_description %>
+          </div>
+          <div class="field">
             <%= f.label "APP LOGO"%><br>
             <%= f.file_field :app_logo%>
           </div>
